@@ -14,8 +14,16 @@ Mock inventory was added on the BootStrapData.java in lines 70-132. The inventor
 The inventory is only created when the database is empty. A git commit was carried for task E with the message 'Task E Completed'
 
 
-## Task F; Adding Buy Now Button
+## Task F Adding Buy Now Button
 Added the 'Buy Now' button on the mainscreen.html in line 85
 Also implemented the URL mapping and controller in AddProductController.java from line 177-199.
 Clicking the button opens a confirmation page, and decrements the inventory by 1
 The solution for this step is accompanied by the git commit message 'Task F'
+
+# TAsk G; Adding minInv and maxInv
+The implementation of the minInv and maxInv begin by the creation of variables in lines 32-35
+A new constructor featuring all parameters is created in lines 57-63
+Changes are made to the setInv method to ensure the inv is not less than minInv and not greater than maxInv.
+The changes are made in lines 93-99
+The getter and setter methods for minInv and maxInv are implemented between lines 121 and 141
+Corresponding changes were implemented in the mainscreen.html in lines 38-39 and 49-49

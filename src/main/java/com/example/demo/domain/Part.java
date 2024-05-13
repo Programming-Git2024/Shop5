@@ -29,6 +29,11 @@ public abstract class Part implements Serializable {
     @Min(value = 0, message = "Inventory value must be positive")
     int inv;
 
+    @Min(value = 0, message = "Minimum inventory value must be positive")
+    int minInv; // New field for minimum inventory
+    @Min(value = 2, message = "Maximum inventory must be at least 2")
+    int maxInv; // New field for maximum inventory
+
     @ManyToMany
     @JoinTable(name="product_part", joinColumns = @JoinColumn(name="part_id"),
             inverseJoinColumns=@JoinColumn(name="product_id"))
@@ -48,6 +53,13 @@ public abstract class Part implements Serializable {
         this.name = name;
         this.price = price;
         this.inv = inv;
+    }
+    public Part(String name, double price, int inv, int minInv, int maxInv) {
+        this.name = name;
+        this.price = price;
+        this.inv = inv;
+        this.minInv = minInv;
+        this.maxInv = maxInv;
     }
 
     public long getId() {
@@ -79,7 +91,11 @@ public abstract class Part implements Serializable {
     }
 
     public void setInv(int inv) {
-        this.inv = inv;
+       if (this.inv < minInv || this.inv > maxInv) {
+            throw new IllegalArgumentException("Inventory must be between minimum and maximum values.");
+        }else {
+              this.inv = inv;
+        }
     }
 
     public Set<Product> getProducts() {
@@ -101,6 +117,26 @@ public abstract class Part implements Serializable {
         Part part = (Part) o;
 
         return id == part.id;
+    }
+    // getter and setter methods fot maxInv and minInv
+    public int getMinInv() {
+        return minInv;
+    }
+
+    public void setMinInv(int minInv) {
+        this.minInv = minInv;
+    }
+
+    public int getMaxInv() {
+        return maxInv;
+    }
+
+    public void setMaxInv(int maxInv) {
+        if (maxInv < minInv ) {
+            throw new IllegalArgumentException("MaxInv must be greater than minInv");
+        }else {
+            this.maxInv = maxInv;
+        }
     }
 
     @Override
