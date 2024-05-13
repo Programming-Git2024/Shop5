@@ -34,10 +34,13 @@ In these lines, a validator for inv ensures the value is not less than minInv,
 and also not greater than maxInv.
 The commit message for this task is 'task H'
 
-## TAsk Implementing tests in PartTest.java
+## Task I Implementing tests in PartTest.java
 The following tests were implemented between lines 159-198 of PartTest.java
 getMinInv() 
 setMinInv() getMaxInv() 
 setMaxInv()
 setMinAndMaxInv() 
 The commit message for this task is 'Task I'
+
+## Task J
+Removed the class files for any unused validators in order to clean the code
