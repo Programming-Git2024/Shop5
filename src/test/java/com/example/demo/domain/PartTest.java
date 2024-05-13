@@ -156,4 +156,45 @@ class PartTest {
         partOut.setId(1l);
         assertEquals(partIn.hashCode(),partOut.hashCode());
     }
+    // Unit tests for minInv field
+    @Test
+    void getMinInv() {
+        int minInv = 10;
+        partIn.setMinInv(minInv);
+        assertEquals(minInv, partIn.getMinInv());
+    }
+
+    @Test
+    void setMinInv() {
+        int minInv = 10;
+        partIn.setMinInv(minInv);
+        assertEquals(minInv, partIn.getMinInv());
+    }
+
+    // Unit tests for maxInv field
+    @Test
+    void getMaxInv() {
+        int maxInv = 100;
+        partIn.setMaxInv(maxInv);
+        assertEquals(maxInv, partIn.getMaxInv());
+    }
+
+    @Test
+    void setMaxInv() {
+        int maxInv = 100;
+        partIn.setMaxInv(maxInv);
+        assertEquals(maxInv, partIn.getMaxInv());
+    }
+
+    // Unit tests for setting minInv and maxInv simultaneously
+    @Test
+    void setMinAndMaxInv() {
+        int minInv = 10;
+        int maxInv = 100;
+        partIn.setMinInv(minInv);
+        partIn.setMaxInv(maxInv);
+        assertEquals(minInv, partIn.getMinInv());
+        assertEquals(maxInv, partIn.getMaxInv());
+    }
 }
+
