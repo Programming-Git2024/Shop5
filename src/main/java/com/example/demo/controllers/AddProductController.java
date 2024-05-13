@@ -173,4 +173,29 @@ public class AddProductController {
         theModel.addAttribute("availparts",availParts);
         return "productForm";
     }
+
+    @GetMapping("/confirmPurchase")
+    public String confirmPurchase(){
+        return "confirmPurchase";
+    }
+    @GetMapping("/buynow")
+    public String buyNow(@RequestParam("productID") int productId, Model theModel) {
+        ProductService productService = context.getBean(ProductServiceImpl.class);
+        Product product = productService.findById(productId);
+
+        if (product.getInv() > 0) {
+            // Decrement the inventory by one
+            product.setInv(product.getInv() - 1);
+            productService.save(product);
+            // Display a success message
+            theModel.addAttribute("message", "Purchase successful. Thank you for your order!");
+        } else {
+            // Display a failure message if the inventory is empty
+            theModel.addAttribute("message", "Sorry, this product is out of stock.");
+        }
+
+        // Redirect back to the main screen
+        return "redirect:/confirmPurchase";
+    }
 }
+

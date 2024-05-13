@@ -12,3 +12,10 @@ A link to the aboutus page was added to mainscreen.html in lines 90-92. A commit
 ## Task E Adding inventory
 Mock inventory was added on the BootStrapData.java in lines 70-132. The inventory comprises 5 products and 5 parts.
 The inventory is only created when the database is empty. A git commit was carried for task E with the message 'Task E Completed'
+
+
+## Task F; Adding Buy Now Button
+Added the 'Buy Now' button on the mainscreen.html in line 85
+Also implemented the URL mapping and controller in AddProductController.java from line 177-199.
+Clicking the button opens a confirmation page, and decrements the inventory by 1
+The solution for this step is accompanied by the git commit message 'Task F'
