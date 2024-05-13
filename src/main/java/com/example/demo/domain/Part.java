@@ -91,6 +91,7 @@ public abstract class Part implements Serializable {
     }
 
     public void setInv(int inv) {
+        //validators for inv
        if (this.inv < minInv || this.inv > maxInv) {
             throw new IllegalArgumentException("Inventory must be between minimum and maximum values.");
         }else {
@@ -132,6 +133,7 @@ public abstract class Part implements Serializable {
     }
 
     public void setMaxInv(int maxInv) {
+        // validators for maxInv
         if (maxInv < minInv ) {
             throw new IllegalArgumentException("MaxInv must be greater than minInv");
         }else {

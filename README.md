@@ -20,12 +20,16 @@ Also implemented the URL mapping and controller in AddProductController.java fro
 Clicking the button opens a confirmation page, and decrements the inventory by 1
 The solution for this step is accompanied by the git commit message 'Task F'
 
-## Task G Adding minInv and maxInv
+## TAsk G; Adding minInv and maxInv
 The implementation of the minInv and maxInv begin by the creation of variables in lines 32-35
 A new constructor featuring all parameters is created in lines 57-63
 Changes are made to the setInv method to ensure the inv is not less than minInv and not greater than maxInv.
 The changes are made in lines 93-99
 The getter and setter methods for minInv and maxInv are implemented between lines 121 and 141
 Corresponding changes were implemented in the mainscreen.html in lines 38-39 and 49-49
-Changes were also made to the inhousepartform.html from line 18-31.
-Similar changes were made to the outsourcepartform.html in lines 19-33
+
+## Task H Adding validation between max and min fields
+validation is implemented in part.java in lines 94-96 and 136-141. 
+In these lines, a validator for inv ensures the value is not less than minInv, 
+and also not greater than maxInv.
+The commit message for this task is 'task H'
