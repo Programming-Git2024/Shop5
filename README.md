@@ -29,7 +29,7 @@ The getter and setter methods for minInv and maxInv are implemented between line
 Corresponding changes were implemented in the mainscreen.html in lines 38-39 and 49-49
 
 ## Task H Adding validation between max and min fields
-validation is implemented in part.java in lines 94-96 and 136-141. 
+validation is implemented in part.java in lines 94-101. 
 In these lines, a validator for inv ensures the value is not less than minInv, 
 and also not greater than maxInv.
 The commit message for this task is 'task H'

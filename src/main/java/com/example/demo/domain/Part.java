@@ -26,11 +26,12 @@ public abstract class Part implements Serializable {
     String name;
     @Min(value = 0, message = "Price value must be positive")
     double price;
-    @Min(value = 0, message = "Inventory value must be positive")
+    @Min(value = 1, message = "Inventory value must be positive")
     int inv;
 
     @Min(value = 0, message = "Minimum inventory value must be positive")
     int minInv; // New field for minimum inventory
+
     @Min(value = 2, message = "Maximum inventory must be at least 2")
     int maxInv; // New field for maximum inventory
 
@@ -92,10 +93,10 @@ public abstract class Part implements Serializable {
 
     public void setInv(int inv) {
         //validators for inv
-       if (this.inv < minInv || this.inv > maxInv) {
-            throw new IllegalArgumentException("Inventory must be between minimum and maximum values.");
-        }else {
-              this.inv = inv;
+        if (this.inv >= this.minInv && this.inv<= this.maxInv) {
+           this.inv=inv;
+        } else {
+            throw new IllegalArgumentException("Inventory must be >= minInv and <= maxiInv");
         }
     }
 
@@ -134,15 +135,12 @@ public abstract class Part implements Serializable {
 
     public void setMaxInv(int maxInv) {
         // validators for maxInv
-        if (maxInv < minInv ) {
-            throw new IllegalArgumentException("MaxInv must be greater than minInv");
-        }else {
-            this.maxInv = maxInv;
-        }
+        this.maxInv = maxInv;
     }
+
 
     @Override
     public int hashCode() {
-        return (int) (id ^ (id >>> 32));
+        return Long.hashCode(id);
     }
 }
